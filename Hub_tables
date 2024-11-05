@@ -1,0 +1,21 @@
+-- Hub for Customers
+CREATE TABLE rv.Hub_Customer (
+    CustomerID INT PRIMARY KEY, -- Business/Natural Key
+    CustomerName NVARCHAR(100),
+    CreatedDate DATETIME
+);
+
+-- Hub for Products
+CREATE TABLE rv.Hub_Product (
+    ProductID INT PRIMARY KEY, -- Business/Natural Key
+    ProductName NVARCHAR(100),
+    CreatedDate DATETIME
+);
+
+-- Hub for Suppliers
+CREATE TABLE rv.Hub_Supplier (
+    SupplierID INT PRIMARY KEY, -- Business/Natural Key
+    SupplierName NVARCHAR(100),
+    CreatedDate DATETIME
+);
+

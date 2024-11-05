@@ -1,0 +1,26 @@
+-- Link for Customer Purchases Product
+CREATE TABLE rv.Link_CustomerProduct (
+    CustomerProductID INT PRIMARY KEY,
+    CustomerID INT,
+    ProductID INT,
+    PurchaseDate DATETIME,
+    FOREIGN KEY (CustomerID) REFERENCES rv.Hub_Customer(CustomerID),
+    FOREIGN KEY (ProductID) REFERENCES rv.Hub_Product(ProductID)
+);
+
+-- Satellite for Customer Contact Info
+CREATE TABLE rv.Sat_CustomerContact (
+    CustomerID INT,
+    PhoneNumber NVARCHAR(15),
+    Email NVARCHAR(50),
+    Address NVARCHAR(255),
+    FOREIGN KEY (CustomerID) REFERENCES rv.Hub_Customer(CustomerID)
+);
+
+-- Satellite for Product Pricing Info
+CREATE TABLE rv.Sat_ProductPricing (
+    ProductID INT,
+    Price DECIMAL(10, 2),
+    Currency NVARCHAR(10),
+    FOREIGN KEY (ProductID) REFERENCES rv.Hub_Product(ProductID)
+);
